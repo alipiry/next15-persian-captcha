@@ -773,10 +773,10 @@ path-scurry@^1.11.1:
     lru-cache "^10.2.0"
     minipass "^5.0.0 || ^6.0.2 || ^7.0.0"
 
-persian-captcha-generator@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/persian-captcha-generator/-/persian-captcha-generator-1.1.1.tgz#0589519367160f978de12feb921d0f874691f5de"
-  integrity sha512-btwRgV3WAuSiNNftqc4ZM/xg7j2/oK5BCB8pxr7YrK2K1DMBXUd2Yh8ng6bIh8zelGiu2+ko0p0Or6g45dmdcQ==
+persian-captcha-generator@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/persian-captcha-generator/-/persian-captcha-generator-1.1.3.tgz#28cba825e1e70b14355c490c44476004a91a1dc6"
+  integrity sha512-J/XIWBZ6Wxfsd6p1VEauDphqDcQl7gb3GLhNJOCZUXt0/OsOwcTQ9bFvDeJCHG64/2S9mH3YCGiirtS+XTPDQg==
   dependencies:
     sharp "^0.33.5"
 
