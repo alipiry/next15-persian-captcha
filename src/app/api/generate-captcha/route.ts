@@ -11,7 +11,8 @@ export async function GET() {
   );
   const captcha = await persianCaptchaGenerator({
     environment: "next",
-    fontPath: "/fonts/Vazirmatn-Regular.ttf",
+    fontPath:
+      "https://next15-persian-captcha.vercel.app/fonts/Vazirmatn-Regular.ttf",
   });
 
   session.captchaValue = captcha.text;
