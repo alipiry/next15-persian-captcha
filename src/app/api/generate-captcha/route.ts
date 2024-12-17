@@ -9,7 +9,10 @@ export async function GET() {
     await cookies(),
     sessionOptions
   );
-  const captcha = await persianCaptchaGenerator({});
+  const captcha = await persianCaptchaGenerator({
+    environment: "next",
+    fontPath: "public/fonts/Vazirmatn-Regular.ttf",
+  });
 
   session.captchaValue = captcha.text;
   await session.save();
