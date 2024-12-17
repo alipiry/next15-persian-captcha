@@ -9,11 +9,7 @@ export async function GET() {
     await cookies(),
     sessionOptions
   );
-  const captcha = await persianCaptchaGenerator({
-    environment: "next",
-    fontPath:
-      "https://next15-persian-captcha.vercel.app/fonts/Vazirmatn-Regular.ttf",
-  });
+  const captcha = await persianCaptchaGenerator({ characterSet: "numbers" });
 
   session.captchaValue = captcha.text;
   await session.save();
