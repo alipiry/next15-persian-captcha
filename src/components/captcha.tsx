@@ -18,7 +18,7 @@ export default function Captcha() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ input: captchaValue }),
+      body: JSON.stringify({ input: convertToPersianDigits(captchaValue) }),
     });
 
     const data = await response.json();
@@ -49,8 +49,8 @@ export default function Captcha() {
           className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors text-center bg-[#f2f2f2] dark:bg-[#1a1a1a] hover:bg-[#e6e6e6] dark:hover:bg-[#333] text-black dark:text-white placeholder-gray-500 text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
           value={captchaValue}
           onChange={(e) => {
-            const convertedValue = convertToPersianDigits(e.target.value);
-            setCaptchaValue(convertedValue);
+            const value = e.target.value;
+            setCaptchaValue(value);
           }}
         />
 
