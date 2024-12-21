@@ -4,11 +4,28 @@ import { getIronSession } from "iron-session";
 import { persianCaptchaGenerator } from "persian-captcha-generator";
 import { SessionData, sessionOptions } from "@/lib/iron-session";
 
+const colorThemes = [
+  { backgroundColor: "#FFFFFF", textColor: "#000000" },
+  { backgroundColor: "#FFA500", textColor: "#000000" },
+  { backgroundColor: "#FFF000", textColor: "#000000" },
+  { backgroundColor: "#0000FF", textColor: "#FFFFFF" },
+  { backgroundColor: "#228B22", textColor: "#FFFFFF" },
+  { backgroundColor: "#8B008B", textColor: "#FFFFFF" },
+  { backgroundColor: "#FF0000", textColor: "#FFFFFF" },
+];
+
+function getRandomColorTheme() {
+  return colorThemes[Math.floor(Math.random() * colorThemes.length)];
+}
+
 export async function GET() {
   const session = await getIronSession<SessionData>(
     await cookies(),
     sessionOptions
   );
+
+  const { backgroundColor, textColor } = getRandomColorTheme();
+
   const captcha = await persianCaptchaGenerator({
     length: 6,
     characterSet: "numbers",
@@ -17,8 +34,8 @@ export async function GET() {
     fontSize: 50,
     lineCount: 10,
     dotCount: 100,
-    textColor: "#000000",
-    backgroundColor: "#f8f9fa",
+    backgroundColor,
+    textColor,
   });
 
   session.captchaValue = captcha.text;
