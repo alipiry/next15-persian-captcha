@@ -9,7 +9,17 @@ export async function GET() {
     await cookies(),
     sessionOptions
   );
-  const captcha = await persianCaptchaGenerator({ characterSet: "numbers" });
+  const captcha = await persianCaptchaGenerator({
+    length: 6,
+    characterSet: "numbers",
+    width: 300,
+    height: 100,
+    fontSize: 50,
+    lineCount: 10,
+    dotCount: 100,
+    textColor: "#000000",
+    backgroundColor: "#f8f9fa",
+  });
 
   session.captchaValue = captcha.text;
   await session.save();
